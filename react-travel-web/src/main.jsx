@@ -2,6 +2,29 @@ import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
 
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App/>,
+    errorElement: <div>Error</div>
+  },
+  {
+    path: "/about",
+    element: <div>About us</div>,
+    errorElement: <div>Error</div>
+  },
+]);
+
+
 ReactDOM.createRoot(document.getElementById('root')).render(
-    <App />
+  <React.StrictMode>
+  <RouterProvider router={router} />
+  </React.StrictMode>
+  
 )
