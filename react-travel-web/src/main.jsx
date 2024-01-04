@@ -1,6 +1,12 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
-import App from './App.jsx'
+// import App from './App.jsx'
+import Home from './components/pages/Home.jsx';
+import Services from './components/pages/Services.jsx';
+import Products from './components/pages/Products.jsx';
+import SignUp from './components/pages/SignUp.jsx';
+import Navbar from './components/Navbar.jsx';
+import Footer from './components/Footer.jsx';
 
 import {
   createBrowserRouter,
@@ -11,12 +17,44 @@ import {
 const router = createBrowserRouter([
   {
     path: "/",
-    element: <App/>,
+    element: (
+      <>
+        <Navbar />
+        <Home />
+        <Footer />
+      </>
+    ),
     errorElement: <div>Error</div>
   },
   {
-    path: "/about",
-    element: <div>About us</div>,
+    path: "/services",
+    element: (
+      <>
+        <Navbar />
+        <Services />
+        <Footer />
+      </>),
+    errorElement: <div>Error</div>
+  },
+  {
+    path: "/products",
+    element:
+      <>
+        <Navbar />
+        <Products />
+        <Footer />
+      </>,
+    errorElement: <div>Error</div>
+  },
+  {
+    path: "/sign-up",
+    element: (
+      <>
+      <Navbar />
+        <SignUp />
+        <Footer />
+        </>
+    ),
     errorElement: <div>Error</div>
   },
 ]);
@@ -24,7 +62,7 @@ const router = createBrowserRouter([
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-  <RouterProvider router={router} />
+    <RouterProvider router={router} />
   </React.StrictMode>
   
 )
